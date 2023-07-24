@@ -14,7 +14,7 @@ const CollegeCard = ({ college }) => {
   };
   return (
     <div className="card w-full bg-gray-700 text-white ">
-      <figure><img className="w-full h-full" src={camp_2} alt="" /></figure>
+      <figure><img className="w-full h-[200px] object-cover" src={image} alt="" /></figure>
       <div className="card-body">
         <h2>{name}</h2>
         <p>Admission Date: {admissionDate}</p>
@@ -30,22 +30,6 @@ const CollegeCard = ({ college }) => {
     </div>
 
 
-
-
-    // <div className="card lg:card-side bg-base-100 shadow-xl">
-    //   <figure><img className="w-full h-full" src={camp_2} alt="Album" /></figure>
-    //   <div className="card-body">
-    //   <h2>{name}</h2> 
-    //    <p>Rating: {rating}</p>
-    //    <p>Admission Date: {admissionDate}</p>
-    //  <p>Research Count: {researchCount}</p>
-
-    //     <div className="card-actions justify-end">
-    //       <button>Listen</button>
-    //       <button  className="btn btn-primary" onClick={() => console.log("View Details")}>Details</button>
-    //     </div>
-    //   </div>
-    // </div>
   );
 };
 

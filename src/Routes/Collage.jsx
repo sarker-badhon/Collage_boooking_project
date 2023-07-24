@@ -1,67 +1,17 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import CollegeCard from "../Routes/CollegeCard";
 import CollegeDetails from "../Routes/CollegeDetails";
-import camp_2 from '../assets/camp_2.jpg'
 
-const collegesData = [
-  {
-    image: "camp_2",
-    name: "Example College 1",
-    rating: 4.5,
-    admissionDate: "August 2023",
-    researchCount: 120,
-    events: ["Annual Fest", "Tech Symposium", "Cultural Night"],
-    sportsFacilities: ["Football Ground", "Basketball Court", "Gymnasium"],
-  },
-  {
-    image: "camp_2",
-    name: "Example College 1",
-    rating: 4.5,
-    admissionDate: "August 2023",
-    researchCount: 120,
-    events: ["Annual Fest", "Tech Symposium", "Cultural Night"],
-    sportsFacilities: ["Football Ground", "Basketball Court", "Gymnasium"],
-  },
-  {
-    image: "camp_2",
-    name: "Example College 2",
-    rating: 4.2,
-    admissionDate: "September 2023",
-    researchCount: 90,
-    events: ["Freshers Party", "Hackathon", "Literary Meet"],
-    sportsFacilities: ["Cricket Ground", "Tennis Court", "Swimming Pool"],
-  },
-  {
-    image: "college3.jpg",
-    name: "Example College 3",
-    rating: 4.8,
-    admissionDate: "October 2023",
-    researchCount: 150,
-    events: ["Cultural Fest", "Science Exhibition", "Alumni Meet"],
-    sportsFacilities: ["Volleyball Court", "Badminton Court", "Athletics Track"],
-  },
-  {
-    image: "college4.jpg",
-    name: "Example College 4",
-    rating: 4.3,
-    admissionDate: "November 2023",
-    researchCount: 100,
-    events: ["Tech Conference", "Dance Competition", "Singing Contest"],
-    sportsFacilities: ["Soccer Field", "Table Tennis Room", "Yoga Studio"],
-  },
-  {
-    image: "college5.jpg",
-    name: "Example College 5",
-    rating: 4.7,
-    admissionDate: "December 2023",
-    researchCount: 200,
-    events: ["Annual Sports Day", "Debate Competition", "Music Festival"],
-    sportsFacilities: ["Hockey Ground", "Chess Room", "Fitness Center"],
-  },
-];
 
 const Collage = () => {
   const [selectedCollege, setSelectedCollege] = useState(null);
+  const [collegesData, setCollegesData] = useState([]);
+
+  useEffect(()=>{
+    fetch("http://localhost:5000/college_card")
+    .then(res=>res.json())
+    .then(data=>setCollegesData(data))
+  },[])
 
   const handleDetailsClick = (college) => {
     setSelectedCollege(college);
